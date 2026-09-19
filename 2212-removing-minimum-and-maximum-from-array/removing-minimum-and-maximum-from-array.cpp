@@ -8,8 +8,8 @@ public:
      int left = min(minelin,maxelin);
      int right = max(minelin,maxelin);
 
-     return min({ left+1+n-right,n-left,right+1 });
-
+     return min({ left+1+n-right,right+1,n-left });
+      
     }
     
 
