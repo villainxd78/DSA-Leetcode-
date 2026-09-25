@@ -1,7 +1,7 @@
 class Solution {
 public:
    long long pow(long long a,long long b){
-    long long m = 1000000007;
+   long long m = 1000000007;
     if(b == 0) return 1;
     long long temp = pow(a,b/2);
     if(b%2 ==0){
