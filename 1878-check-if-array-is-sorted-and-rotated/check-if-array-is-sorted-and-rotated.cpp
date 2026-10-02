@@ -2,34 +2,27 @@ class Solution {
 public:
     bool check(vector<int>& nums) {
         int n = nums.size();
-        vector<int>sorted(n);
-         
-         for(int i = 0;i<n;i++){
-            int idx = 0;
-            for(int j = i;j<n;j++){
-                sorted[idx]=nums[j];
-                idx++;
+        vector<int>sorted= nums;
+        sort(sorted.begin(),sorted.end());
+
+           
+        for(int r = 0;r<n;r++){
+             bool isSorted = true;
+            for(int i = 0;i<n-1;i++){
+                if(nums[i]!= sorted[(i+r)%n]){
+                    isSorted = false;
+                    break;
+                }
             }
-             for(int k = 0;k<i;k++){
-                sorted[idx]=nums[k];
-                idx++;
-            }
-                    
-         
-        
-         bool issorted = true;
-         for(int i = 0;i<n-1;i++){
-            if(sorted[i]>sorted[i+1]) {
-            issorted = false;
-            break;
-            
-            }
-         }
-         if(issorted==true){
+             if(isSorted ==true){
             return true;
+        }
+            
+        }
         
-         }
-         }
-         return false;
+       
+        return false;
+
     }
+
 };
