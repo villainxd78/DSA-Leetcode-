@@ -8,7 +8,7 @@ public:
            
         for(int r = 0;r<n;r++){
              bool isSorted = true;
-            for(int i = 0;i<n;i++){
+            for(int i = 0;i<n-1;i++){
                 if(nums[i]!= sorted[(i+r)%n]){
                     isSorted = false;
                     break;
