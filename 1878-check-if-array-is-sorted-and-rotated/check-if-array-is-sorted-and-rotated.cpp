@@ -2,27 +2,22 @@ class Solution {
 public:
     bool check(vector<int>& nums) {
         int n = nums.size();
-        vector<int>sorted= nums;
-        sort(sorted.begin(),sorted.end());
-
-           
-        for(int r = 0;r<n;r++){
-             bool isSorted = true;
-            for(int i = 0;i<n-1;i++){
-                if(nums[i]!= sorted[(i+r)%n]){
-                    isSorted = false;
-                    break;
-                }
-            }
-             if(isSorted ==true){
-            return true;
-        }
-            
-        }
-        
+        int peak = 0;
        
-        return false;
+        for(int i = 0;i<n;i++){
+            if(nums[i]>nums[(i+1)%n]){
+                peak++;
+            }
+        }
+        if(peak>1){
 
+            return false;
+        
+        }
+            return true;
+        
+        
+      
+        
     }
-
 };
