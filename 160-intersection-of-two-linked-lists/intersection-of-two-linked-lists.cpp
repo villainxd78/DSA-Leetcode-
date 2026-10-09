@@ -6,30 +6,52 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
 class Solution {
 public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-       ListNode * t1 = headA;
-       ListNode * t2 = headB;
+    int getSize(ListNode* head) {
+        int size = 0;
 
-       while(t1!=t2){
-        if(t1==nullptr){
-        t1 = headB;
-        }else{
-            t1= t1->next;
+        while (head != NULL) {
+            head = head->next;
+            size++;
         }
-        
-        
-       
-       if(t2==NULL){
-          t2=headA;
-       }else{
-           t2=t2->next;
-       }
-       }
-       
 
-       return t1;
-       
+        return size;
+    }
+
+    ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
+        int m = getSize(headA);
+        int n = getSize(headB);
+
+        ListNode* t1 = headA;
+        ListNode* t2 = headB;
+
+        int diff = 0;
+
+        if (m >= n) {
+            diff = m - n;
+
+            for (int i = 0; i < diff; i++) {
+                t1 = t1->next;
+            }
+        } else {
+            diff = n - m;
+
+            for (int i = 0; i < diff; i++) {
+                t2 = t2->next;
+            }
+        }
+
+        while (t1 != NULL && t2 != NULL && t1 != t2) {
+            t1 = t1->next;
+            t2 = t2->next;
+        }
+
+        if (t1 == NULL) {
+            return NULL;
+        } else {
+            return t1;
+        }
     }
 };
