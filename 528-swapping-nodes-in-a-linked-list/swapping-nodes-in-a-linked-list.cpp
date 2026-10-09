@@ -10,27 +10,30 @@
  */
 class Solution {
 public:
-    int getsizze(ListNode * head){
-        int size = 0;
-        while(head!=nullptr){
-            size ++;
-            head = head->next;
-        }
-        return size;
-    }
     ListNode* swapNodes(ListNode* head, int k) {
-        
         ListNode * temp = head;
-       for(int i = 1;i<k;i++){
-        temp = temp->next;
-       }
-       int o = getsizze(head);
-       int diff = o-k;
-       ListNode * curr = head;
-       for(int i = 0;i<diff;i++){
-         curr = curr->next;
-       }
-       swap(curr->val,temp->val);
-       return head;
+         ListNode* p1 =head;
+         ListNode* p2 = head;
+          
+          int i = 1;
+          while(i<k){
+           p1 = p1->next;
+            i++;
+          }
+         temp = p1;
+
+          temp = temp->next;
+            
+            while(temp!=NULL){
+                  temp = temp->next;
+                  p2 = p2->next;
+            }
+            
+          
+     swap(p2->val,p1->val);
+        return head;
+          
+
     }
+     
 };
