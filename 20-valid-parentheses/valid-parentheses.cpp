@@ -4,27 +4,23 @@ public:
         int n = s.length();
         stack<int>st;
         for(int i = 0;i<n;i++){
-           char ch = s[i];
+            char ch = s[i];
 
-           if(s[i]=='(' || s[i]=='{'||s[i]=='['){
-            st.push(ch);
-           }else{
-               if(st.empty()){
-               return false;
+            if(ch=='(' || ch=='['|| ch=='{'){
+                st.push(ch);
+            }else{
+                if(st.empty()){
+                    return false;
+                }
+                if(ch==')' && st.top()=='(' || ch=='}'&& st.top()=='{' || ch==']' && st.top()=='['){
+                st.pop();
 
-               }
-                if(ch==')'&& st.top()!='('){
-            return false;
-           }
-           if(ch=='}' && st.top()!='{'){
-            return false;
-           }
-           if(ch==']'&& st.top()!='['){
-            return false;
-           }
-           st.pop();
-           }
-          
+            }
+            else{
+                return false;
+            }
+            }
+            
         }
         return st.empty();
     }
