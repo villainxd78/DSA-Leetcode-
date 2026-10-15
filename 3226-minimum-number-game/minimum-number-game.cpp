@@ -1,14 +1,11 @@
+
 class Solution {
 public:
     vector<int> numberGame(vector<int>& nums) {
         sort(nums.begin(),nums.end());
-        int n = nums.size();
-        int i = 0;
-        while(i<n){
+        for(int i=0;i<nums.size();i+=2){
           swap(nums[i],nums[i+1]);
-          i=i+2;
-        }
-            return nums;
-
+         }
+         return nums;
     }
 };
