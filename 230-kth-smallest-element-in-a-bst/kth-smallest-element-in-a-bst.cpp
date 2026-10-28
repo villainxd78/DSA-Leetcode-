@@ -11,21 +11,22 @@
  */
 class Solution {
 public:
-int search(TreeNode* root, int& K) {
-if (root == NULL) {
-return -1;
-}
-int leftVal = search(root->left, K);
-if(leftVal != -1) {
-return leftVal;
-}
-K--;
-if(K == 0) {
-return root->val;
-}
-return search(root->right, K);
-}
-int kthSmallest(TreeNode* root, int k) {
-return search(root, k);
-}
+      void inorder(TreeNode * root,int k,int & count,int & ans){
+        if(root==NULL){
+            return;
+        }
+        inorder(root->left,k,count,ans);
+        count++;
+        if(count==k){
+            ans = root->val;
+            return;
+        }
+        inorder(root->right,k,count,ans);
+      }
+    int kthSmallest(TreeNode* root, int k) {
+        int count = 0;
+        int ans = -1;
+        inorder(root,k,count,ans);
+        return ans;
+    }
 };
