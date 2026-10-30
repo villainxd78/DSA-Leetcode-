@@ -11,10 +11,6 @@ public:
               high = mid;
             }
         }
-        vector<int>ans;
-        for(int i = 0;i<k;i++){
-           ans.push_back(arr[low+i]);
-        }
-        return ans;
+       return vector<int>(arr.begin()+low,arr.begin()+low+k);
     }
 };
