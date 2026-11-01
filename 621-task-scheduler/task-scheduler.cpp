@@ -1,8 +1,7 @@
 class Solution {
 public:
     int leastInterval(vector<char>& tasks, int n) {
-      
-        vector<int>mp(26,0);
+         vector<int>mp(26,0);
         for(auto & ch : tasks){
             mp[ch-'A']++;
         }
