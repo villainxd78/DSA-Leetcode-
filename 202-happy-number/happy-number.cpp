@@ -2,7 +2,7 @@ class Solution {
 public:
      int sumofSquare(int n){
         int sum = 0;
-        while(n){
+        while(n>0){
             int digit = n%10;
             n /=10;
             sum += (digit * digit);
