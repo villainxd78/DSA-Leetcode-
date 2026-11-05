@@ -6,7 +6,7 @@ public:
             st.insert(el);
         }
         for(auto &el :nums2){
-            if(st.find(el)!= st.end()){
+            if(st.contains(el)){
               ans.push_back(el);
               st.erase(el);
             }
