@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void pathHelper(int src,int dest, vector<bool>vis, vector<int>path,vector<vector<int>>&ans,vector<vector<int>>graph){
+    void pathHelper(int src,int dest, vector<bool>vis, vector<int>path,vector<vector<int>>&ans,vector<vector<int>>&graph){
         if(src==dest){
             path.push_back(dest);
             ans.push_back(path);
