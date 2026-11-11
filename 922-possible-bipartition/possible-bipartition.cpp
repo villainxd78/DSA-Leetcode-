@@ -10,7 +10,7 @@ public:
         }
         vector<int>color(n+1,-1);
         queue<int>Q;
-        for(int i = 0;i<n;i++){
+        for(int i = 1;i<=n;i++){
             if(color[i]==-1){
                 Q.push(i);
                 color[i]=0;
