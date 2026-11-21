@@ -21,16 +21,17 @@ class DSU{
         if(pa == pb){
             return false;
         }
-       if(rank[pa] > rank[pb]){
-        parent[pb] = pa;
-    }
-    else if(rank[pa] < rank[pb]){
-        parent[pa] = pb;
-    }
-    else{
-        parent[pb] = pa;
-        rank[pa]++;
-    }
+        
+        if(rank[a]==rank[b]){
+            parent[pb]=pa;
+            rank[pa]++;
+        }else if( rank[a]>rank[b])
+           {
+                parent[pb]=pa;
+            }else{
+                parent[pa]=pb;
+            }
+        
 
         return true;
     }
