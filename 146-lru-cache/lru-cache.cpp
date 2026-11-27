@@ -25,11 +25,13 @@ public:
     }
 
     void addNode (Node * newNode){
-        Node * oldNext = head->next;
+        Node * temp = head->next;
         head->next = newNode;
-        oldNext->prev = newNode;
-        newNode ->next = oldNext;
+        temp->prev = newNode;
+        newNode->next = temp;
         newNode->prev = head;
+
+
     }
      void delNode(Node * oldNode){
         Node * oldPrev = oldNode ->prev;
