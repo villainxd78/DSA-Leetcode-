@@ -15,34 +15,32 @@ class TrieNode{
 class Solution {
 public:
      void insert(TrieNode * root, string word){
-        TrieNode * curr = root;
-         
-         for(int i = 0;i<word.length();i++){
-            int index = word[i]-'a';
-         
+       TrieNode * curr = root;
+       for(int i = 0;i<word.size();i++){
+        int index = word[i] - 'a';
          if(curr->children[index]==NULL){
-            curr->children[index]=new TrieNode();
+            curr->children[index]= new TrieNode();
          }
          curr = curr->children[index];
-     }
-     curr->isEnd = true;
-     curr->str = word;
-
+       }
+        curr->isEnd = true;
+        curr->str =word; 
  }
   void dfs(TrieNode * curr, string &ans){
-    for(int i = 0;i<26;i++){
-        if(curr->children[i]!=NULL &&  curr->children[i]->isEnd==true){
-          if(ans.length()<curr->children[i]->str.length()){
-            ans = curr->children[i]->str;
-        }
-           else if(ans.length()==curr->children[i]->str.length()){
-            if(curr->children[i]->str < ans){
+
+      for(int i = 0;i<26;i++){
+        if(curr->children[i]!=NULL && curr->children[i]->isEnd ==true){
+            if(ans.length() < curr->children[i]->str.length()){
                 ans = curr->children[i]->str;
             }
-           }
-           dfs(curr->children[i],ans);
-               }
-           }   
+            else if(ans.length() == curr->children[i]->str.length()){
+                if(ans > curr->children[i]->str){
+                    ans = curr->children[i]->str;
+                }
+            }
+            dfs(curr->children[i],ans);
+        }
+      }
          }
     string longestWord(vector<string>& words) {
         TrieNode * root = new TrieNode();
